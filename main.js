@@ -4,8 +4,6 @@ const getWeather = async (city) => {
         const response = await fetch(url);
         const data = await response.json();
         
-        console.log(data);
-
         const neededData = {
             name: data.name,
             weather: data.weather[0].description,
@@ -22,4 +20,13 @@ const getWeather = async (city) => {
     }
 }
 
-getWeather('london').then(data => console.log(data));
+getWeather('cameron').then(data => console.log(data));
+
+const userQuery = document.getElementById('userQuery');
+const form = document.getElementById('form');
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    getWeather(userQuery.value).then(data => console.log(data));
+    userQuery.value = '';
+})
