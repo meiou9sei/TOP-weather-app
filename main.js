@@ -19,6 +19,7 @@ const getWeather = async (city) => {
 
     } catch (error) {
         console.error(error);
+        displayError();
     }
 }
 
@@ -31,12 +32,26 @@ const displayInfo = (weatherData) => {
     document.querySelector('.humidity .variableData').textContent = weatherData.humidity;
     document.querySelector('.windSpeed .variableData').textContent = weatherData.wind_speed;
     document.querySelector('.clouds .variableData').textContent = weatherData.clouds;
-
 }
 
 const convertKToF = (temp) => {
     return Math.round(((temp - 273.15) * (9/5) + 32) * 100) / 100;
 } 
+
+function displayError() {
+    if (!document.querySelector('#errorMessage')) {
+        const errorMessage = document.createElement("p");
+        errorMessage.setAttribute('id','errorMessage');
+        const node = document.createTextNode("Error! Try entering a valid city name. Else, the site may just be bugged atm");
+        errorMessage.appendChild(node);
+    
+        const element = document.getElementById("cityQueryForm");
+        element.appendChild(errorMessage);
+        setTimeout(() => {
+            errorMessage.remove();
+        }, 5000);
+    }
+}
 
 getWeather('tokyo').then(data => console.log(data));
 
