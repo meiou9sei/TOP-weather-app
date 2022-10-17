@@ -25,7 +25,7 @@ const getWeather = async (city) => {
 const displayInfo = (weatherData) => {
     document.querySelector('.city .variableData').textContent = weatherData.name;
     document.querySelector('.weather .variableData').textContent = weatherData.weather;
-    document.querySelector('.icon').src = `http://openweathermap.org/img/wn/${weatherData.icon}@2x.png`
+    document.querySelector('.icon').src = `https://openweathermap.org/img/wn/${weatherData.icon}@2x.png`
     document.querySelector('.temp .variableData').textContent = convertKToF(weatherData.temp);
     document.querySelector('.feelsLike .variableData').textContent = convertKToF(weatherData.feels_like);
     document.querySelector('.humidity .variableData').textContent = weatherData.humidity;
