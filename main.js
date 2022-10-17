@@ -1,6 +1,6 @@
 const getWeather = async (city) => {
     try {
-        const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=1de2fe9bfb96c5bb2212c3fe482db260`;
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=1de2fe9bfb96c5bb2212c3fe482db260`;
         const response = await fetch(url);
         const data = await response.json();
         
@@ -26,7 +26,6 @@ const displayInfo = (weatherData) => {
     document.querySelector('.city .variableData').textContent = weatherData.name;
     document.querySelector('.weather .variableData').textContent = weatherData.weather;
     document.querySelector('.icon').src = `http://openweathermap.org/img/wn/${weatherData.icon}@2x.png`
-    console.log(weatherData.icon);
     document.querySelector('.temp .variableData').textContent = convertKToF(weatherData.temp);
     document.querySelector('.feelsLike .variableData').textContent = convertKToF(weatherData.feels_like);
     document.querySelector('.humidity .variableData').textContent = weatherData.humidity;
