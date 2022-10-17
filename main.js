@@ -23,15 +23,15 @@ const getWeather = async (city) => {
 }
 
 const displayInfo = (weatherData) => {
-    document.querySelector('.city').textContent = weatherData.name;
-    document.querySelector('.weather').textContent = weatherData.weather;
+    document.querySelector('.city .variableData').textContent = weatherData.name;
+    document.querySelector('.weather .variableData').textContent = weatherData.weather;
     document.querySelector('.icon').src = `http://openweathermap.org/img/wn/${weatherData.icon}@2x.png`
     console.log(weatherData.icon);
-    document.querySelector('.temp').textContent = convertKToF(weatherData.temp);
-    document.querySelector('.feelsLike').textContent = convertKToF(weatherData.feels_like);
-    document.querySelector('.humidity').textContent = weatherData.humidity;
-    document.querySelector('.windSpeed').textContent = weatherData.wind_speed;
-    document.querySelector('.clouds').textContent = weatherData.clouds;
+    document.querySelector('.temp .variableData').textContent = convertKToF(weatherData.temp);
+    document.querySelector('.feelsLike .variableData').textContent = convertKToF(weatherData.feels_like);
+    document.querySelector('.humidity .variableData').textContent = weatherData.humidity;
+    document.querySelector('.windSpeed .variableData').textContent = weatherData.wind_speed;
+    document.querySelector('.clouds .variableData').textContent = weatherData.clouds;
 
 }
 
